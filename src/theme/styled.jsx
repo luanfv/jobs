@@ -3,7 +3,19 @@ import Button from '@material-ui/core/Button'
 
 export const ButtonStyle = styled(Button)`
     && {
-        height: 30px;
+        height: 40px;
         width: 150px;
+
+    }
+
+    label {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        text-transform: uppercase;
+
+        color: #FFFFFF;
     }
 `

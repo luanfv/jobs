@@ -11,7 +11,7 @@ export default () => (
                 Usuários
             </TitleListStyle>
             <ButtonStyle variant="contained" color="primary">
-                Cadastrar
+                criar
             </ButtonStyle>
         </MainStyle>
     </div>
