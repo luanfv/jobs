@@ -1,5 +1,4 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -7,57 +6,43 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 
-const useStyles = makeStyles({
-  root: {
-    width: '100%',
-    overflowX: 'auto',
-  },
-  table: {
-    minWidth: 650,
-  },
-})
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein }
+const createData = (id, name, stack, birth, email) => {
+  return { id, name, stack, birth, email }
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData(1, 'Joaozinho', 'Front-end', '07/09/1998', 'joaozinho@gmail.com'),
+  createData(2, 'Maria', 'Front-end', '03/05/2001', 'mariazinha@gmail.com'),
+  createData(3, 'Josevaldo', 'Full-Stack', '05/02/1998', 'josevaldaum@gmail.com'),
+  createData(4, 'Cleiton', 'Back-end', '10/11/1994', 'cleiton@gmail.com'),
+  createData(5, 'Florentina', 'Back-end', '19/04/2000', 'flores@gmail.com'),
 ]
 
-export default function SimpleTable() {
-  const classes = useStyles()
-
-  return (
-    <Paper className={classes.root}>
-      <Table className={classes.table} aria-label="simple table">
+export default () => (
+    <Paper>
+        <Table aria-label="simple table">
         <TableHead>
-          <TableRow>
+            <TableRow>
             <TableCell>ID</TableCell>
             <TableCell align="center">Nome</TableCell>
             <TableCell align="center">Vaga</TableCell>
             <TableCell align="center">Data de Nascimento</TableCell>
             <TableCell align="center">Email</TableCell>
-          </TableRow>
+            </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="center">{row.calories}</TableCell>
-              <TableCell align="center">{row.fat}</TableCell>
-              <TableCell align="center">{row.carbs}</TableCell>
-              <TableCell align="center">{row.protein}</TableCell>
+            {rows.map(row => (
+            <TableRow key={row.id}>
+                <TableCell component="th" scope="row">
+                {row.id}
+                </TableCell>
+                <TableCell align="center">{row.name}</TableCell>
+                <TableCell align="center">{row.stack}</TableCell>
+                <TableCell align="center">{row.birth}</TableCell>
+                <TableCell align="center">{row.email}</TableCell>
             </TableRow>
-          ))}
+            ))}
         </TableBody>
-      </Table>
+        </Table>
     </Paper>
-  )
-}
+)
