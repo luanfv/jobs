@@ -4,7 +4,7 @@ import color from './theme/color'
 import Home from './screens/Home'
 
 export default () => (
-  <MuiThemeProvider theme={color}>
-    <Home />
-  </MuiThemeProvider>
+    <MuiThemeProvider theme={color}>
+      <Home />
+    </MuiThemeProvider>
 )
