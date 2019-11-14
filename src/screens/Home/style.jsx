@@ -8,10 +8,12 @@ export const MainStyle = styled.main`
     justify-content: space-between;
 `
 
-export const TitleListStyle = styled.div`
-    
-`
+export const TitleListStyle = styled.h4`
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
 
-export const ButtonListStyle = styled.div`
-    
+    color: #000000;
 `
