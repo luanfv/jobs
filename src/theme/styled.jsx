@@ -19,3 +19,8 @@ export const ButtonStyle = styled(Button)`
         color: #FFFFFF;
     }
 `
+
+export const TitleStyle = styled.label`
+    color: #7C7C7C;
+    font-weight: 800;
+`

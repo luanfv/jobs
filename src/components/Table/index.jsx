@@ -5,6 +5,7 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
+import {TitleStyle} from './../../theme/styled'
 
 const createData = (id, name, stack, birth, email) => {
   return { id, name, stack, birth, email }
@@ -23,17 +24,27 @@ export default () => (
         <Table aria-label="simple table">
         <TableHead>
             <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell align="center">Nome</TableCell>
-            <TableCell align="center">Vaga</TableCell>
-            <TableCell align="center">Data de Nascimento</TableCell>
-            <TableCell align="center">Email</TableCell>
+                <TableCell align="center">
+                    <TitleStyle>ID</TitleStyle>
+                </TableCell>
+                <TableCell align="center">
+                    <TitleStyle>Nome</TitleStyle>
+                </TableCell>
+                <TableCell align="center">
+                    <TitleStyle>Vaga</TitleStyle>
+                </TableCell>
+                <TableCell align="center">
+                    <TitleStyle>Data de Nascimento</TitleStyle>
+                </TableCell>
+                <TableCell align="center">
+                    <TitleStyle>Email</TitleStyle>
+                </TableCell>
             </TableRow>
         </TableHead>
         <TableBody>
             {rows.map(row => (
             <TableRow key={row.id}>
-                <TableCell component="th" scope="row">
+                <TableCell align="center" component="th" scope="row">
                 {row.id}
                 </TableCell>
                 <TableCell align="center">{row.name}</TableCell>
