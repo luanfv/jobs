@@ -4,6 +4,9 @@ export const MainStyle = styled.main`
     width-max: 500px;
     padding: 60px 40px;
     border: blue solid 2px;
+`
+
+export const FlexBox = styled.div`
     display: flex;
     justify-content: space-between;
 `
