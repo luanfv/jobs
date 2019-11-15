@@ -5,6 +5,6 @@ export const HeaderStyle = styled.header`
     padding: 20px;
 
     img {
-       margin-left: 40px; 
+       margin-left: 20px; 
     }
 `
