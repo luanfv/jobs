@@ -5,7 +5,7 @@ import Home from '../screens/Home'
 export default () => (
     <BrowserRouter>
         <Switch>
-            <Route excat path='/' component={Home} />
+            <Route exact path='/' component={Home} />
         </Switch>
     </BrowserRouter>
 )
