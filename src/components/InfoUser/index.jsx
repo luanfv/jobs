@@ -1,6 +1,7 @@
 import React from 'react'
 import {PaperStyle} from './style'
 import {MainStyle, TitleStyle, ButtonStyle, SpaceStyle} from './../../theme/styled'
+import {Link} from 'react-router-dom'
 
 export default (props) => {
     console.log(props)
@@ -17,9 +18,11 @@ export default (props) => {
 
                 <SpaceStyle />
 
-                <ButtonStyle variant="contained" color="primary">
-                    Voltar
-                </ButtonStyle>
+                <Link to='/'>
+                    <ButtonStyle variant="contained" color="primary">
+                        Voltar
+                    </ButtonStyle>
+                </Link>                
             </PaperStyle>
         </MainStyle>
         

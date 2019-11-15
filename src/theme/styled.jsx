@@ -13,14 +13,13 @@ export const ButtonStyle = styled(Button)`
 
     }
 
-    label {
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 16px;
-        text-transform: uppercase;
+    a {
+        text-decoration: none;
+        width: 100%;
+        height: 100%px;
+    }
 
+    label {
         color: #FFFFFF;
     }
 `
