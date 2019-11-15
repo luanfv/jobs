@@ -3,6 +3,7 @@ import {FlexBox, TitleListStyle} from './style'
 import {MainStyle, ButtonStyle} from '../../theme/styled'
 import Header from './../../components/Header'
 import Table from './../../components/Table'
+import {Link} from 'react-router-dom'
 
 export default () => (
     <div>
@@ -12,9 +13,11 @@ export default () => (
                 <TitleListStyle>
                     Usuários
                 </TitleListStyle>
-                <ButtonStyle variant="contained" color="primary">
-                    criar
-                </ButtonStyle>
+                <Link to='/register'>
+                    <ButtonStyle variant="contained" color="primary">
+                        criar
+                    </ButtonStyle>
+                </Link>
             </FlexBox>
 
             <Table />
