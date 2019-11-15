@@ -44,7 +44,7 @@ export default () => (
             </TableHead>
             <TableBody>
                 {rows.map(row => (
-                <TableRowStyle key={row.id}>
+                <TableRowStyle key={row.id} onClick={() => console.log(row)}>
                     <TableCell align="center" component="th" scope="row">
                     {row.id}
                     </TableCell>
