@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import TableRow from '@material-ui/core/TableRow'
+import {Link} from 'react-router-dom'
 
 export const TableRowStyle = styled(TableRow)`
     && {
@@ -8,4 +9,9 @@ export const TableRowStyle = styled(TableRow)`
             cursor: pointer;
         }
     }
+`
+
+export const LinkStyle = styled(Link)`
+    text-decoration: none;
+    display: block;
 `
