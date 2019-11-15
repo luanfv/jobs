@@ -1,6 +1,6 @@
 import React from 'react'
-import {MainStyle, FlexBox, TitleListStyle} from './style'
-import {ButtonStyle} from '../../theme/styled'
+import {FlexBox, TitleListStyle} from './style'
+import {MainStyle, ButtonStyle} from '../../theme/styled'
 import Header from './../../components/Header'
 import Table from './../../components/Table'
 
