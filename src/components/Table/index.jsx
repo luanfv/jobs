@@ -1,4 +1,5 @@
 import React from 'react'
+import {TableRowStyle} from './style'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -22,38 +23,38 @@ const rows = [
 export default () => (
     <Paper>
         <Table aria-label="simple table">
-        <TableHead>
-            <TableRow>
-                <TableCell align="center">
-                    <TitleStyle>ID</TitleStyle>
-                </TableCell>
-                <TableCell align="center">
-                    <TitleStyle>Nome</TitleStyle>
-                </TableCell>
-                <TableCell align="center">
-                    <TitleStyle>Vaga</TitleStyle>
-                </TableCell>
-                <TableCell align="center">
-                    <TitleStyle>Data de Nascimento</TitleStyle>
-                </TableCell>
-                <TableCell align="center">
-                    <TitleStyle>Email</TitleStyle>
-                </TableCell>
-            </TableRow>
-        </TableHead>
-        <TableBody>
-            {rows.map(row => (
-            <TableRow key={row.id}>
-                <TableCell align="center" component="th" scope="row">
-                {row.id}
-                </TableCell>
-                <TableCell align="center">{row.name}</TableCell>
-                <TableCell align="center">{row.stack}</TableCell>
-                <TableCell align="center">{row.birth}</TableCell>
-                <TableCell align="center">{row.email}</TableCell>
-            </TableRow>
-            ))}
-        </TableBody>
+            <TableHead>
+                <TableRow>
+                    <TableCell align="center">
+                        <TitleStyle>ID</TitleStyle>
+                    </TableCell>
+                    <TableCell align="center">
+                        <TitleStyle>Nome</TitleStyle>
+                    </TableCell>
+                    <TableCell align="center">
+                        <TitleStyle>Vaga</TitleStyle>
+                    </TableCell>
+                    <TableCell align="center">
+                        <TitleStyle>Data de Nascimento</TitleStyle>
+                    </TableCell>
+                    <TableCell align="center">
+                        <TitleStyle>Email</TitleStyle>
+                    </TableCell>
+                </TableRow>
+            </TableHead>
+            <TableBody>
+                {rows.map(row => (
+                <TableRowStyle key={row.id}>
+                    <TableCell align="center" component="th" scope="row">
+                    {row.id}
+                    </TableCell>
+                    <TableCell align="center">{row.name}</TableCell>
+                    <TableCell align="center">{row.stack}</TableCell>
+                    <TableCell align="center">{row.birth}</TableCell>
+                    <TableCell align="center">{row.email}</TableCell>
+                </TableRowStyle>
+                ))}
+            </TableBody>
         </Table>
     </Paper>
 )
