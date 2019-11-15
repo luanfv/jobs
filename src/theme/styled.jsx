@@ -1,5 +1,17 @@
 import styled from 'styled-components'
 import Button from '@material-ui/core/Button'
+import Paper from '@material-ui/core/Paper'
+
+export const PaperStyle = styled(Paper)`
+    && {
+        padding: 20px;
+
+        p {
+            padding: 10px 0px;
+            font-size: 14px;
+        }
+    }
+`
 
 export const MainStyle = styled.main`
     width-max: 500px;

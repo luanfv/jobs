@@ -1,5 +1,5 @@
 import React from 'react'
-import {PaperStyle} from './style'
+import {PaperStyle} from './../../theme/styled'
 import {MainStyle, TitleStyle, ButtonStyle, SpaceStyle} from './../../theme/styled'
 import {Link} from 'react-router-dom'
 
