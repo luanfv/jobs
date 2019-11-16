@@ -1,5 +1,5 @@
 import React from 'react'
-import {TableRowStyle} from './style'
+import {TableRowStyle, LinkStyle} from './style'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -25,33 +25,33 @@ export default () => (
         <Table aria-label="simple table">
             <TableHead>
                 <TableRow>
-                    <TableCell align="center">
+                    <TableCell>
                         <TitleStyle>ID</TitleStyle>
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell>
                         <TitleStyle>Nome</TitleStyle>
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell>
                         <TitleStyle>Vaga</TitleStyle>
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell>
                         <TitleStyle>Data de Nascimento</TitleStyle>
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell>
                         <TitleStyle>Email</TitleStyle>
                     </TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
                 {rows.map(row => (
-                <TableRowStyle key={row.id}>
-                    <TableCell align="center" component="th" scope="row">
-                    {row.id}
+                <TableRowStyle key={row.id} onClick={() => console.log(row)}>
+                    <TableCell component="th" scope="row">
+                        <LinkStyle to='/user'>{row.id}</LinkStyle>
                     </TableCell>
-                    <TableCell align="center">{row.name}</TableCell>
-                    <TableCell align="center">{row.stack}</TableCell>
-                    <TableCell align="center">{row.birth}</TableCell>
-                    <TableCell align="center">{row.email}</TableCell>
+                    <TableCell>{row.name}</TableCell>
+                    <TableCell>{row.stack}</TableCell>
+                    <TableCell>{row.birth}</TableCell>
+                    <TableCell>{row.email}</TableCell>
                 </TableRowStyle>
                 ))}
             </TableBody>
