@@ -45,11 +45,9 @@ export default () => (
             <TableBody>
                 {rows.map(row => (
                 <TableRowStyle key={row.id} onClick={() => console.log(row)}>
-                    <LinkStyle to='/user'>
-                        <TableCell component="th" scope="row">
-                            {row.id}
-                        </TableCell>
-                    </LinkStyle>
+                    <TableCell component="th" scope="row">
+                        <LinkStyle to='/user'>{row.id}</LinkStyle>
+                    </TableCell>
                     <TableCell>{row.name}</TableCell>
                     <TableCell>{row.stack}</TableCell>
                     <TableCell>{row.birth}</TableCell>
