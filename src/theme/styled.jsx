@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper'
 
@@ -18,11 +19,24 @@ export const MainStyle = styled.main`
     padding: 60px 40px;
 `
 
+export const FormStyle = styled.form`
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+`
+
+export const TextFieldStyle = styled(TextField)`
+    && {
+        width: 280px;
+        padding: 5px;
+    }
+`
+
 export const ButtonStyle = styled(Button)`
     && {
         height: 40px;
         width: 150px;
-
+        width: ${props => `${props.width}px`};
     }
 
     a {
