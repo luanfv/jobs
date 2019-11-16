@@ -23,13 +23,18 @@ const rows = [
 
 export default () => {
     const [handleUser, setHandleUser] = useState(false)
+    const [userId, setUserId] = useState('')
 
     useEffect(() => {
     }, [])
 
-    
+    const configParams = (id) => {
+        setUserId(id)
+        setHandleUser(true)
+    }
+ 
     if(handleUser) {
-        return <Redirect to='/user' />
+        return <Redirect to={`/user/${userId}`} />
     }
         
     return (
@@ -56,7 +61,8 @@ export default () => {
                 </TableHead>
                 <TableBody>
                     {rows.map(row => (
-                        <TableRowStyle key={row.id} onClick={() => {setHandleUser(true)}}>
+                        <TableRowStyle key={row.id} onClick={() => configParams(row.id)}>
+
                             <TableCell component="th" scope="row">
                                 {row.id}
                             </TableCell>
@@ -64,6 +70,7 @@ export default () => {
                             <TableCell>{row.stack}</TableCell>
                             <TableCell>{row.birth}</TableCell>
                             <TableCell>{row.email}</TableCell>
+
                         </TableRowStyle>
                     ))}
                 </TableBody>

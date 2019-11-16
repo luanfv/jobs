@@ -3,8 +3,7 @@ import {PaperStyle} from './../../theme/styled'
 import {MainStyle, TitleStyle, ButtonStyle, SpaceStyle} from './../../theme/styled'
 import {Link} from 'react-router-dom'
 
-export default (props) => {
-    console.log(props)
+export default () => {
     return (
         <MainStyle>
             <PaperStyle>
@@ -25,6 +24,5 @@ export default (props) => {
                 </Link>                
             </PaperStyle>
         </MainStyle>
-        
     )
 }

@@ -5,6 +5,6 @@ import InfoUser from './../../components/InfoUser'
 export default () => (
     <div>
         <Header />
-        <InfoUser user={{nome: 'Luan', idade: 19,}} />
+        <InfoUser />
     </div>
 ) 
