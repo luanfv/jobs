@@ -1,5 +1,5 @@
-import React from 'react'
-import {TableRowStyle, LinkStyle} from './style'
+import React, {useEffect, useState} from 'react'
+import {TableRowStyle} from './style'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -7,6 +7,7 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 import {TitleStyle} from './../../theme/styled'
+import {Redirect} from 'react-router-dom'
 
 const createData = (id, name, stack, birth, email) => {
   return { id, name, stack, birth, email }
@@ -20,41 +21,53 @@ const rows = [
   createData(5, 'Florentina', 'Back-end', '19/04/2000', 'flores@gmail.com'),
 ]
 
-export default () => (
-    <Paper>
-        <Table aria-label="simple table">
-            <TableHead>
-                <TableRow>
-                    <TableCell>
-                        <TitleStyle>ID</TitleStyle>
-                    </TableCell>
-                    <TableCell>
-                        <TitleStyle>Nome</TitleStyle>
-                    </TableCell>
-                    <TableCell>
-                        <TitleStyle>Vaga</TitleStyle>
-                    </TableCell>
-                    <TableCell>
-                        <TitleStyle>Data de Nascimento</TitleStyle>
-                    </TableCell>
-                    <TableCell>
-                        <TitleStyle>Email</TitleStyle>
-                    </TableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
-                {rows.map(row => (
-                <TableRowStyle key={row.id} onClick={() => console.log(row)}>
-                    <TableCell component="th" scope="row">
-                        <LinkStyle to='/user'>{row.id}</LinkStyle>
-                    </TableCell>
-                    <TableCell>{row.name}</TableCell>
-                    <TableCell>{row.stack}</TableCell>
-                    <TableCell>{row.birth}</TableCell>
-                    <TableCell>{row.email}</TableCell>
-                </TableRowStyle>
-                ))}
-            </TableBody>
-        </Table>
-    </Paper>
-)
+export default () => {
+    const [handleUser, setHandleUser] = useState(false)
+
+    useEffect(() => {
+    }, [])
+
+    
+    if(handleUser) {
+        return <Redirect to='/user' />
+    }
+        
+    return (
+        <Paper>
+            <Table aria-label="simple table">
+                <TableHead>
+                    <TableRow>
+                        <TableCell>
+                            <TitleStyle>ID</TitleStyle>
+                        </TableCell>
+                        <TableCell>
+                            <TitleStyle>Nome</TitleStyle>
+                        </TableCell>
+                        <TableCell>
+                            <TitleStyle>Vaga</TitleStyle>
+                        </TableCell>
+                        <TableCell>
+                            <TitleStyle>Data de Nascimento</TitleStyle>
+                        </TableCell>
+                        <TableCell>
+                            <TitleStyle>Email</TitleStyle>
+                        </TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {rows.map(row => (
+                        <TableRowStyle key={row.id} onClick={() => {setHandleUser(true)}}>
+                            <TableCell component="th" scope="row">
+                                {row.id}
+                            </TableCell>
+                            <TableCell>{row.name}</TableCell>
+                            <TableCell>{row.stack}</TableCell>
+                            <TableCell>{row.birth}</TableCell>
+                            <TableCell>{row.email}</TableCell>
+                        </TableRowStyle>
+                    ))}
+                </TableBody>
+            </Table>
+        </Paper>
+    )
+}

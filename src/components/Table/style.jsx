@@ -10,8 +10,3 @@ export const TableRowStyle = styled(TableRow)`
         }
     }
 `
-
-export const LinkStyle = styled(Link)`
-    text-decoration: none;
-    display: block;
-`
