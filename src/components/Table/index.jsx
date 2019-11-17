@@ -6,7 +6,7 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
-import {TitleStyle} from './../../theme/styled'
+import {TitleStyle} from './../../themes/styled'
 import {Redirect} from 'react-router-dom'
 
 const createData = (id, name, stack, birth, email) => {

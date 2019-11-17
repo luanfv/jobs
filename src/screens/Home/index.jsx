@@ -1,6 +1,6 @@
 import React from 'react'
 import {FlexBox, TitleListStyle} from './style'
-import {MainStyle, ButtonStyle} from '../../theme/styled'
+import {MainStyle, ButtonStyle} from '../../themes/styled'
 import Header from './../../components/Header'
 import Table from './../../components/Table'
 import {Link} from 'react-router-dom'

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {MainStyle, PaperStyle, FormStyle,TitleStyle , TextFieldStyle, ButtonStyle, SpaceStyle} from './../../theme/styled'
+import {MainStyle, PaperStyle, FormStyle,TitleStyle , TextFieldStyle, ButtonStyle, SpaceStyle} from './../../themes/styled'
 
 export default () => {
     const [name, setName] = useState('')

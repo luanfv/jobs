@@ -1,7 +1,7 @@
 import React from 'react'
 import Routes from './routes/Route'
 import {MuiThemeProvider} from '@material-ui/core/styles'
-import color from './theme/color'
+import color from './themes/color'
 
 export default () => (
     <MuiThemeProvider theme={color}>

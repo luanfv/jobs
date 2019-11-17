@@ -1,6 +1,6 @@
 import React from 'react'
 import {MainImg} from './style'
-import error404 from './../../img/error404.png'
+import error404 from './../../images/error404.png'
 
 export default () => (
     <MainImg>

@@ -1,6 +1,6 @@
 import React from 'react'
 import {HeaderStyle} from './style'
-import logo from './../../img/logo.png'
+import logo from './../../images/logo.png'
 import {Link} from 'react-router-dom'
 
 export default () => (
