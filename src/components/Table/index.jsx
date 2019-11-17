@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {TableRowStyle} from './style'
+import {TableRowStyle, MainLoaderStyle} from './style'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -8,35 +8,38 @@ import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 import {TitleStyle} from './../../themes/styled'
 import {Redirect} from 'react-router-dom'
-
-const createData = (id, name, stack, birth, email) => {
-  return { id, name, stack, birth, email }
-}
-
-const rows = [
-  createData(1, 'Joaozinho', 'Front-end', '07/09/1998', 'joaozinho@gmail.com'),
-  createData(2, 'Maria', 'Front-end', '03/05/2001', 'mariazinha@gmail.com'),
-  createData(3, 'Josevaldo', 'Full-Stack', '05/02/1998', 'josevaldaum@gmail.com'),
-  createData(4, 'Cleiton', 'Back-end', '10/11/1994', 'cleiton@gmail.com'),
-  createData(5, 'Florentina', 'Back-end', '19/04/2000', 'flores@gmail.com'),
-]
+import {localApi} from './../../services/api'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 export default () => {
     const [handleUser, setHandleUser] = useState(false)
     const [userId, setUserId] = useState('')
+    const [users, setUsers] = useState('')
 
-    useEffect(() => {
-    }, [])
+    const handleUsers = async () => {
+        const response = await localApi.get('/users')
+        setUsers(response.data)
+    }
 
     const configParams = (id) => {
         setUserId(id)
         setHandleUser(true)
     }
+
+    handleUsers()
  
     if(handleUser) {
         return <Redirect to={`/user/${userId}`} />
     }
-        
+    
+    if(users === '') {
+        return (
+            <MainLoaderStyle>
+                <CircularProgress />
+            </MainLoaderStyle>
+        )
+    }
+
     return (
         <Paper>
             <Table aria-label="simple table">
@@ -60,16 +63,16 @@ export default () => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map(row => (
-                        <TableRowStyle key={row.id} onClick={() => configParams(row.id)}>
+                    {users.map(user => (
+                        <TableRowStyle key={user.id} onClick={() => configParams(user.id)}>
 
                             <TableCell component="th" scope="row">
-                                {row.id}
+                                {user.id}
                             </TableCell>
-                            <TableCell>{row.name}</TableCell>
-                            <TableCell>{row.stack}</TableCell>
-                            <TableCell>{row.birth}</TableCell>
-                            <TableCell>{row.email}</TableCell>
+                            <TableCell>{user.name}</TableCell>
+                            <TableCell>{user.stack}</TableCell>
+                            <TableCell>{user.birthday}</TableCell>
+                            <TableCell>{user.email}</TableCell>
 
                         </TableRowStyle>
                     ))}

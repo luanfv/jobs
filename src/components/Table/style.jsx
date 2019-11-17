@@ -9,3 +9,11 @@ export const TableRowStyle = styled(TableRow)`
         }
     }
 `
+
+export const MainLoaderStyle = styled.div`
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
