@@ -30,9 +30,9 @@ Simulation of a server
 
 *or*
 
-`npm install -g create-react-app `
-`npm install react-router-dom`
-`npm install styled-components`
-`npm install @material-ui/core`
-`npm install axios`
-`npm install json-server`
+### `npm install -g create-react-app`
+### `npm install react-router-dom`
+### `npm install styled-components`
+### `npm install @material-ui/core`
+### `npm install axios`
+### `npm install json-server`
