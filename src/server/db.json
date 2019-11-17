@@ -1,0 +1,32 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Cleiton",
+            "stack": "Full-Stack",
+            "birthday": "22/08/1997",
+            "email": "cleitinho@gmail.com"
+        },
+        {
+            "id": 2,
+            "name": "Florisbela",
+            "stack": "Front-end",
+            "birthday": "14/01/1999",
+            "email": "flores@gmail.com"
+        },
+        {
+            "id": 3,
+            "name": "Josevaldo",
+            "stack": "Back-end",
+            "birthday": "06/06/1996",
+            "email": "jojo@gmail.com"
+        },
+        {
+            "id": 4,
+            "name": "Mario",
+            "stack": "Front-end",
+            "birthday": "19/11/2000",
+            "email": "bros@gmail.com"
+        }
+    ]
+}
