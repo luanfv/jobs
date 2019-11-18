@@ -37,7 +37,7 @@ Simulation of a server
 ### `npm install axios`
 ### `npm install json-server`
 
-#Starting
+# Starting
 
 To start, open the terminal and type `npm i`; then find the src folder, browse to the services folder and run `json-server --watch db.json` for server-json to start.
 After that, go back to the main folder (jobs) and run `npm start`
