@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {MainStyle, PaperStyle, FormStyle,TitleStyle , TextFieldStyle, ButtonStyle, SpaceStyle} from './../../themes/styled'
 import {localApi} from './../../services/api'
+import Sucess from './../../components/SucessMsg'
 
 export default () => {
     const [name, setName] = useState('')
@@ -12,6 +13,8 @@ export default () => {
     const [isStack, setIsStack] = useState(true)
     const [isBirthday, setIsBirthday] = useState(true)
     const [isEmail, setIsEmail] = useState(true)
+
+    const [isRedirection, setIsRedirection] = useState(false)
 
     const checkForm = () => {
         let isOk = true
@@ -57,11 +60,16 @@ export default () => {
 
             try {
                 await localApi.post('/users', user)
+                setIsRedirection(true)
             }
             catch(e) {
 
             }
         }
+    }
+
+    if(isRedirection) {
+        return <Sucess />
     }
 
     return (
