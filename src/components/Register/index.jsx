@@ -1,15 +1,67 @@
 import React, {useState} from 'react'
 import {MainStyle, PaperStyle, FormStyle,TitleStyle , TextFieldStyle, ButtonStyle, SpaceStyle} from './../../themes/styled'
+import {localApi} from './../../services/api'
 
 export default () => {
     const [name, setName] = useState('')
     const [stack, setStack] = useState('')
-    const [birth, setBrith] = useState('')
+    const [birthday, setBirthday] = useState('')
     const [email, setEmail] = useState('')
 
-    const handleUser = () => {
-        const user = {name: name, stack: stack, birth: birth, email: email}
-        console.log(user)
+    const [isName, setIsName] = useState(true)
+    const [isStack, setIsStack] = useState(true)
+    const [isBirthday, setIsBirthday] = useState(true)
+    const [isEmail, setIsEmail] = useState(true)
+
+    const checkForm = () => {
+        let isOk = true
+
+        if(name.trim() === '') {
+            setIsName(false)
+            isOk = false
+        } 
+        else {
+            setIsName(true)
+        }
+
+        if(stack.trim() === '') {
+            setIsStack(false)
+            isOk = false
+        }
+        else {
+            setIsStack(true)
+        }
+
+        if(birthday.trim() === '') {
+            setIsBirthday(false)
+            isOk = false
+        }
+        else {
+            setIsBirthday(true)
+        }
+
+        if(email.trim() === '') {
+            setIsEmail(false)
+            isOk = false
+        }
+        else {
+            setIsEmail(true)
+        }
+
+        return isOk
+    }
+
+    const handleUser = async () => {
+        if(checkForm()) {
+            const user = {name: name, stack: stack, birthday: birthday, email: email}
+
+            try {
+                await localApi.post('/users', user)
+            }
+            catch(e) {
+
+            }
+        }
     }
 
     return (
@@ -19,20 +71,38 @@ export default () => {
                     <TitleStyle fontSize='24'>Criar usuário</TitleStyle>
                     <SpaceStyle />
 
-                    <TextFieldStyle label='Nome' value={name} onChange={(e) => setName(e.target.value)} value={name} />
+                    { 
+                        isName ? 
+                        <TextFieldStyle label='Nome' value={name} onChange={(e) => setName(e.target.value)} value={name} />
+                        :
+                        <TextFieldStyle error label='Nome' value={name} onChange={(e) => setName(e.target.value)} value={name} />
+                    }
                     <SpaceStyle />
                     
-                    <TextFieldStyle label='Vaga' value={stack} onChange={(e) => setStack(e.target.value)} value={stack} />
+                    {
+                        isStack ?
+                        <TextFieldStyle label='Vaga' value={stack} onChange={(e) => setStack(e.target.value)} value={stack} />
+                        :
+                        <TextFieldStyle error label='Vaga' value={stack} onChange={(e) => setStack(e.target.value)} value={stack} />
+                    }
                     <SpaceStyle />
                     
-                    <TextFieldStyle label='Data de Nascimento' type="date" 
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    onChange={(e) => setBrith(e.target.value)} value={birth} />
+                    {
+                        isBirthday ?
+                        <TextFieldStyle type='date' label='Data de Nascimento' InputLabelProps={{shrink: true,}} 
+                        onChange={(e) => setBirthday(e.target.value)} value={birthday} />
+                        :
+                        <TextFieldStyle error type='date' label='Data de Nascimento' InputLabelProps={{shrink: true,}} 
+                        onChange={(e) => setBirthday(e.target.value)} value={birthday} />
+                    }
                     <SpaceStyle />
 
-                    <TextFieldStyle label='Email' value={email} onChange={(e) => setEmail(e.target.value)} value={email} />
+                    {
+                        isEmail ?
+                        <TextFieldStyle type='email' label='Email' value={email} onChange={(e) => setEmail(e.target.value)} value={email} />
+                        :
+                        <TextFieldStyle error type='email' label='Email' value={email} onChange={(e) => setEmail(e.target.value)} value={email} />
+                    }
                     <SpaceStyle />
                     
                     <ButtonStyle variant="contained" color="primary" width="280" onClick={handleUser}>Enviar</ButtonStyle>
