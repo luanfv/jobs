@@ -21,6 +21,8 @@ export default () => {
     const checkForm = () => {
         let isOk = true
 
+        console.log(birthday)
+
         if(name.trim() === '') {
             setIsName(false)
             isOk = false
@@ -45,7 +47,7 @@ export default () => {
             setIsBirthday(true)
         }
 
-        if(email.trim() === '') {
+        if(email.trim() === '' || email.indexOf('@') === -1 || email.indexOf('.com') === -1) {
             setIsEmail(false)
             isOk = false
         }
