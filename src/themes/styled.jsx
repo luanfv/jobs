@@ -34,7 +34,7 @@ export const PaperStyle = styled(Paper)`
 
 export const MainStyle = styled.main`
     width-max: 500px;
-    padding: 60px 40px;
+    padding: 30px;
 `
 
 export const FormStyle = styled.form`
@@ -47,6 +47,9 @@ export const TextFieldStyle = styled(TextField)`
     && {
         width: 280px;
         padding: 5px;
+        @media only screen and (max-width: 400px) {
+            width: 100%;
+        }
     }
 `
 
@@ -55,6 +58,10 @@ export const ButtonStyle = styled(Button)`
         height: 40px;
         width: 150px;
         width: ${props => `${props.width}px`};
+
+        @media only screen and (max-width: 400px) {
+            width: 100%;
+        }
     }
 
     a {
@@ -78,4 +85,10 @@ export const TitleStyle = styled.label`
 export const SpaceStyle = styled.div`
     padding: 10px;
     padding: ${(props) => `${props.padding}px`};
+`
+
+export const PaperTable = styled(Paper)`
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
 `

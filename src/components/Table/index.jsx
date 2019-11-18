@@ -4,8 +4,7 @@ import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import Paper from '@material-ui/core/Paper'
-import {TitleStyle, TableRowStyle, MainLoaderStyle} from './../../themes/styled'
+import {TitleStyle, TableRowStyle, MainLoaderStyle, PaperTable} from './../../themes/styled'
 import {Redirect} from 'react-router-dom'
 import {localApi} from './../../services/api'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -28,7 +27,7 @@ export default () => {
     useEffect(() => {
         handleUsers()
     }, [])
- 
+    
     if(handleUser) {
         return <Redirect to={`/user/${userId}`} />
     }
@@ -42,7 +41,7 @@ export default () => {
     }
 
     return (
-        <Paper>
+        <PaperTable>
             <Table aria-label="simple table">
                 <TableHead>
                     <TableRow>
@@ -79,6 +78,6 @@ export default () => {
                     ))}
                 </TableBody>
             </Table>
-        </Paper>
+        </PaperTable>
     )
 }

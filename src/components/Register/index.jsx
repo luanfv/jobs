@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {MainStyle, PaperStyle, FormStyle,TitleStyle , TextFieldStyle, ButtonStyle, SpaceStyle} from './../../themes/styled'
 import {localApi} from './../../services/api'
 import Sucess from './../../components/SucessMsg'
@@ -73,6 +73,9 @@ export default () => {
         }
     }
 
+    useEffect(() => {
+    }, [])
+
     if(isRedirection) {
         return <Sucess />
     }
@@ -90,7 +93,7 @@ export default () => {
 
                     { 
                         isName ? 
-                        <TextFieldStyle label='Nome' value={name} onChange={(e) => setName(e.target.value)} value={name} />
+                        <TextFieldStyle width={window.width < 421 ? '100%' : ''} label='Nome' value={name} onChange={(e) => setName(e.target.value)} value={name} />
                         :
                         <TextFieldStyle error label='Nome' value={name} onChange={(e) => setName(e.target.value)} value={name} />
                     }
