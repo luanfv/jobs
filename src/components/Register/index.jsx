@@ -21,8 +21,6 @@ export default () => {
     const checkForm = () => {
         let isOk = true
 
-        console.log(birthday)
-
         if(name.trim() === '') {
             setIsName(false)
             isOk = false
