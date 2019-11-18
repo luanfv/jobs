@@ -26,7 +26,7 @@ Simulation of a server
 
 # installations needed to execute the project (besides node and npm) are;
 
-`npm i`
+### `npm i`
 
 *or*
 
@@ -36,3 +36,8 @@ Simulation of a server
 ### `npm install @material-ui/core`
 ### `npm install axios`
 ### `npm install json-server`
+
+#Starting
+
+To start, open the terminal and type `npm i`; then find the src folder, browse to the services folder and run `json-server --watch db.json` for server-json to start.
+After that, go back to the main folder (jobs) and run `npm start`
