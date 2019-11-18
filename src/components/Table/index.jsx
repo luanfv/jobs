@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -25,7 +25,9 @@ export default () => {
         setHandleUser(true)
     }
 
-    handleUsers()
+    useEffect(() => {
+        handleUsers()
+    }, [])
  
     if(handleUser) {
         return <Redirect to={`/user/${userId}`} />

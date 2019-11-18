@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Header from './../../components/Header'
 import InfoUser from './../../components/InfoUser'
 import {localApi} from './../../services/api'
@@ -19,7 +19,9 @@ export default (props) => {
         }
     }
 
-    getUser()
+    useEffect(() => {
+        getUser()
+    }, [])
 
     if(user === '') {
         return (
