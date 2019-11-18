@@ -27,6 +27,13 @@
       "stack": "Front-end",
       "birthday": "19/11/2000",
       "email": "bros@gmail.com"
+    },
+    {
+      "name": "Juli Anne",
+      "stack": "Designer",
+      "birthday": "20/04/2000",
+      "email": "julianne@gmail.com",
+      "id": 5
     }
   ]
 }

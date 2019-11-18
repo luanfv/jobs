@@ -76,12 +76,12 @@ export default () => {
     useEffect(() => {
     }, [])
 
-    if(isRedirection) {
-        return <Sucess />
-    }
-
     if(isError) {
         return <Redirect to='error' />
+    }
+
+    if(isRedirection) {
+        return <Sucess />
     }
 
     return (
@@ -93,7 +93,7 @@ export default () => {
 
                     { 
                         isName ? 
-                        <TextFieldStyle width={window.width < 421 ? '100%' : ''} label='Nome' value={name} onChange={(e) => setName(e.target.value)} value={name} />
+                        <TextFieldStyle label='Nome' value={name} onChange={(e) => setName(e.target.value)} value={name} />
                         :
                         <TextFieldStyle error label='Nome' value={name} onChange={(e) => setName(e.target.value)} value={name} />
                     }

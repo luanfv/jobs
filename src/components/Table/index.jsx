@@ -13,10 +13,16 @@ export default () => {
     const [handleUser, setHandleUser] = useState(false)
     const [userId, setUserId] = useState('')
     const [users, setUsers] = useState('')
+    const [isError, setIsError] = useState(false)
 
     const handleUsers = async () => {
-        const response = await localApi.get('/users')
-        setUsers(response.data)
+        try {
+            const response = await localApi.get('/users')
+            setUsers(response.data)
+        }
+        catch(e) {
+            setIsError(true)
+        }
     }
 
     const configParams = (id) => {
@@ -27,11 +33,15 @@ export default () => {
     useEffect(() => {
         handleUsers()
     }, [])
-    
+
+    if(isError) {
+        return <Redirect to='error' />
+    }
+
     if(handleUser) {
         return <Redirect to={`/user/${userId}`} />
     }
-    
+
     if(users === '') {
         return (
             <MainLoaderStyle>
