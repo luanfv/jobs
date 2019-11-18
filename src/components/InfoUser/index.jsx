@@ -2,17 +2,19 @@ import React from 'react'
 import {PaperStyle, MainStyle, TitleStyle, ButtonStyle, SpaceStyle} from './../../themes/styled'
 import {Link} from 'react-router-dom'
 
-export default () => {
+export default (props) => {
+    const {infoUser} = props
+
     return (
         <MainStyle>
             <PaperStyle>
-                <TitleStyle fontSize='24'>Nome</TitleStyle>
+                <TitleStyle fontSize='24'>{infoUser.name}</TitleStyle>
 
                 <SpaceStyle />
 
-                <p>Vaga: </p>
-                <p>Data de Nascimento: </p>
-                <p>Email: </p>
+                <p>Vaga: {infoUser.stack} </p>
+                <p>Data de Nascimento: {infoUser.birthday}</p>
+                <p>Email: {infoUser.email}</p>
 
                 <SpaceStyle />
 
