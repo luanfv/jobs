@@ -58,7 +58,10 @@ export default () => {
 
     const handleUser = async () => {
         if(checkForm()) {
-            const user = {name: name, stack: stack, birthday: birthday, email: email}
+            const date  = birthday.split('-')
+            const birthdayFormat = ((`${date[2]}/${date[1]}/${date[0]}`))
+            
+            const user = {name: name, stack: stack, birthday: birthdayFormat, email: email}
 
             try {
                 await localApi.post('/users', user)
