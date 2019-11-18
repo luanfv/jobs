@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {MainStyle, PaperStyle, FormStyle,TitleStyle , TextFieldStyle, ButtonStyle, SpaceStyle} from './../../themes/styled'
 import {localApi} from './../../services/api'
 import Sucess from './../../components/SucessMsg'
+import {Redirect} from 'react-router-dom'
 
 export default () => {
     const [name, setName] = useState('')
@@ -15,6 +16,7 @@ export default () => {
     const [isEmail, setIsEmail] = useState(true)
 
     const [isRedirection, setIsRedirection] = useState(false)
+    const [isError, setIsError] = useState(false)
 
     const checkForm = () => {
         let isOk = true
@@ -63,13 +65,17 @@ export default () => {
                 setIsRedirection(true)
             }
             catch(e) {
-
+                setIsError(true)
             }
         }
     }
 
     if(isRedirection) {
         return <Sucess />
+    }
+
+    if(isError) {
+        return <Redirect to='error' />
     }
 
     return (
