@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {MainStyle, PaperStyle, FormStyle,TitleStyle , TextFieldStyle, ButtonStyle, SpaceStyle} from './../../themes/styled'
 import {localApi} from './../../services/api'
 import Sucess from './../../components/SucessMsg'
@@ -72,9 +72,6 @@ export default () => {
             }
         }
     }
-
-    useEffect(() => {
-    }, [])
 
     if(isError) {
         return <Redirect to='error' />

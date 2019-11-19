@@ -1,53 +1,24 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import {TitleStyle, TableRowStyle, MainLoaderStyle, PaperTable} from './../../themes/styled'
+import {TitleStyle, TableRowStyle, PaperTable} from './../../themes/styled'
 import {Redirect} from 'react-router-dom'
-import {localApi} from './../../services/api'
-import CircularProgress from '@material-ui/core/CircularProgress'
 
-export default () => {
+export default (props) => {
+    const {users} = props
     const [handleUser, setHandleUser] = useState(false)
     const [userId, setUserId] = useState('')
-    const [users, setUsers] = useState('')
-    const [isError, setIsError] = useState(false)
-
-    const handleUsers = async () => {
-        try {
-            const response = await localApi.get('/users')
-            setUsers(response.data)
-        }
-        catch(e) {
-            setIsError(true)
-        }
-    }
 
     const configParams = (id) => {
         setUserId(id)
         setHandleUser(true)
     }
 
-    useEffect(() => {
-        handleUsers()
-    }, [])
-
-    if(isError) {
-        return <Redirect to='error' />
-    }
-
     if(handleUser) {
         return <Redirect to={`/user/${userId}`} />
-    }
-
-    if(users === '') {
-        return (
-            <MainLoaderStyle>
-                <CircularProgress />
-            </MainLoaderStyle>
-        )
     }
 
     return (
