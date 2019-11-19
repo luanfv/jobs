@@ -9,15 +9,15 @@ import {Redirect} from 'react-router-dom'
 
 export default (props) => {
     const {users} = props
-    const [handleUser, setHandleUser] = useState(false)
+    const [isUser, setIsUser] = useState(false)
     const [userId, setUserId] = useState('')
 
     const configParams = (id) => {
         setUserId(id)
-        setHandleUser(true)
+        setIsUser(true)
     }
 
-    if(handleUser) {
+    if(isUser) {
         return <Redirect to={`/user/${userId}`} />
     }
 
