@@ -34,6 +34,13 @@
       "birthday": "20/04/2000",
       "email": "julianne@gmail.com",
       "id": 5
+    },
+    {
+      "name": "Cleyton",
+      "stack": "Full-Stack",
+      "birthday": "21/08/1997",
+      "email": "cleitoman@gmail.com",
+      "id": 6
     }
   ]
 }
