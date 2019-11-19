@@ -20,6 +20,7 @@ export default (props) => {
     }
 
     useEffect(() => {
+        document.title = 'Nave.rs | Vaga'
         getUser()
     }, [])
 

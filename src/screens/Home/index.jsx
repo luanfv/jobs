@@ -23,6 +23,7 @@ export default () => {
 
     useEffect(() => {
         handleUsers()
+        document.title = 'Nave.rs | Home'
     }, [])
     
     useEffect(() => {
