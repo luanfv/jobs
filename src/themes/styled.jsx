@@ -88,7 +88,9 @@ export const SpaceStyle = styled.div`
 `
 
 export const PaperTable = styled(Paper)`
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
+    @media only screen and (max-width: 630px) {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
 `
