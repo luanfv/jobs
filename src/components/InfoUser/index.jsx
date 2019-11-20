@@ -1,12 +1,24 @@
 import React, {useState, useEffect} from 'react'
 import {PaperStyle, MainStyle, TitleStyle, ButtonStyle, SpaceStyle, FlexMainUserStyle, DeleteOutlineIconStyle, CreateIconStyle} from './../../themes/styled'
+import {MainModalStyle} from './style'
 import {Redirect, Link} from 'react-router-dom'
 import {localApi} from './../../services/api'
+import Sucess from './../SucessMsg'
+import Modal from "@material-ui/core/Modal";
 
 export default (props) => {
     const {infoUser} = props
     const [isRedirection, setIsRedirection] = useState(false)
     const [isError, setIsError] = useState(false)
+    const [open, setOpen] = useState(false)
+
+    const handleOpen = () => {
+        setOpen(true)
+    }
+
+    const handleClose = () => {
+        setOpen(false)
+    }
 
     const deleteUser = async () => {
         try {
@@ -15,7 +27,7 @@ export default (props) => {
         }
         catch(e) {
             setIsError(true)
-        }  
+        }   
     }
 
     useEffect(() => {
@@ -26,7 +38,7 @@ export default (props) => {
     }
 
     if(isRedirection) {
-        return <Redirect to='/' />
+        return <Sucess />
     }  
 
     return (
@@ -35,7 +47,7 @@ export default (props) => {
                 <FlexMainUserStyle>
                     <div>
                         <CreateIconStyle />
-                        <DeleteOutlineIconStyle onClick={() => deleteUser()} />
+                        <DeleteOutlineIconStyle onClick={() => handleOpen()} />
                     </div>
 
                     <div>
@@ -56,7 +68,22 @@ export default (props) => {
                     <ButtonStyle variant="contained" color="primary">
                         Voltar
                     </ButtonStyle>
-                </Link>               
+                </Link>    
+
+                <Modal
+                    open={open}
+                >
+                    <MainModalStyle>
+                        <h2>Tem certeza que deseja excluir esse usuário ?</h2>
+                        <SpaceStyle padding='15' />
+
+                        <div>
+                            <ButtonStyle margin='5' variant="contained" color="secundary" onClick={() => deleteUser()}>Sim</ButtonStyle>
+                            <ButtonStyle margin='5' variant="contained" color="primary" onClick={() => handleClose()}>Não</ButtonStyle>
+                        </div>
+                    </MainModalStyle>
+                </Modal>  
+
             </PaperStyle>
         </MainStyle>
     )

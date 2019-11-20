@@ -59,6 +59,7 @@ export const ButtonStyle = styled(Button)`
     && {
         height: 40px;
         width: 150px;
+        margin: ${props => `${props.margin}px`};
         width: ${props => `${props.width}px`};
 
         @media only screen and (max-width: 450px) {
