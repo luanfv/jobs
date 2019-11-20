@@ -3,6 +3,8 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper'
 import TableRow from '@material-ui/core/TableRow'
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
+import CreateIcon from '@material-ui/icons/Create'
 
 export const TableRowStyle = styled(TableRow)`
     && {
@@ -59,7 +61,7 @@ export const ButtonStyle = styled(Button)`
         width: 150px;
         width: ${props => `${props.width}px`};
 
-        @media only screen and (max-width: 400px) {
+        @media only screen and (max-width: 450px) {
             width: 100%;
         }
     }
@@ -92,5 +94,53 @@ export const PaperTable = styled(Paper)`
         overflow-x: scroll;
         overflow-y: hidden;
         white-space: nowrap;
+    }
+`
+
+export const FlexMainUserStyle = styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+`
+
+export const DeleteOutlineIconStyle = styled(DeleteOutlineIcon)`
+    && {
+        border-radius: 50%;
+        padding: 5px;
+        margin: 0px 1px;
+        width: 35px;
+        height: 35px;
+
+        :hover {
+            cursor: pointer;
+            background: #ef5350;
+        }
+
+        @media only screen and (max-width: 630px) {
+            margin: 0;
+            width: 30px;
+            height: 30px;
+        }
+    }
+`
+
+export const CreateIconStyle = styled(CreateIcon)`
+    && {
+        border-radius: 50%;
+        padding: 5px;
+        margin: 0px 1px;
+        width: 35px;
+        height: 35px;
+
+        :hover {
+            cursor: pointer;
+            background: #ffee58;
+        }
+
+        @media only screen and (max-width: 630px) {
+            margin: 0;
+            width: 30px;
+            height: 30px;
+        }
     }
 `

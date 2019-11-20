@@ -34,6 +34,13 @@
       "birthday": "20/04/2000",
       "email": "julianne@gmail.com",
       "id": 5
+    },
+    {
+      "name": "Lindomar da Silva Rodrigues",
+      "stack": "Full-Stack",
+      "birthday": "05/12/1987",
+      "email": "lindomar@gmail.com",
+      "id": 6
     }
   ]
 }

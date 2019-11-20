@@ -1,5 +1,5 @@
 import React from 'react'
-import {PaperStyle, MainStyle, TitleStyle, ButtonStyle, SpaceStyle} from './../../themes/styled'
+import {PaperStyle, MainStyle, TitleStyle, ButtonStyle, SpaceStyle, FlexMainUserStyle, DeleteOutlineIconStyle, CreateIconStyle} from './../../themes/styled'
 import {Link} from 'react-router-dom'
 
 export default (props) => {
@@ -8,21 +8,31 @@ export default (props) => {
     return (
         <MainStyle>
             <PaperStyle>
-                <TitleStyle fontSize='24'>{infoUser.name}</TitleStyle>
+                <FlexMainUserStyle>
+                    <div>
+                        <CreateIconStyle />
+                        <DeleteOutlineIconStyle />
+                    </div>
 
-                <SpaceStyle />
+                    <div>
+                        <TitleStyle fontSize='24'>{infoUser.name}</TitleStyle>
 
-                <p>Vaga: {infoUser.stack} </p>
-                <p>Data de Nascimento: {infoUser.birthday}</p>
-                <p>Email: {infoUser.email}</p>
+                        <SpaceStyle />
 
-                <SpaceStyle />
+                        <p>Vaga: {infoUser.stack} </p>
+                        <p>Data de Nascimento: {infoUser.birthday}</p>
+                        <p>Email: {infoUser.email}</p>
 
+                        <SpaceStyle />
+
+                        
+                    </div>
+                </FlexMainUserStyle> 
                 <Link to='/'>
                     <ButtonStyle variant="contained" color="primary">
                         Voltar
                     </ButtonStyle>
-                </Link>                
+                </Link>               
             </PaperStyle>
         </MainStyle>
     )
