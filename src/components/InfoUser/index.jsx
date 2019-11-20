@@ -1,9 +1,33 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {PaperStyle, MainStyle, TitleStyle, ButtonStyle, SpaceStyle, FlexMainUserStyle, DeleteOutlineIconStyle, CreateIconStyle} from './../../themes/styled'
-import {Link} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
+import {localApi} from './../../services/api'
 
 export default (props) => {
     const {infoUser} = props
+    const [isRedirection, setIsRedirection] = useState(false)
+    const [isError, setIsError] = useState(false)
+
+    const deleteUser = async () => {
+        try {
+            await localApi.delete(`/users/${infoUser.id}`)
+            setIsRedirection(true)
+        }
+        catch(e) {
+            setIsError(true)
+        }  
+    }
+
+    useEffect(() => {
+    }, [isRedirection, isError])
+
+    if(isError) {
+        return <Redirect to='error' />
+    }
+
+    if(isRedirection) {
+        return <Redirect to='/' />
+    }  
 
     return (
         <MainStyle>
@@ -11,7 +35,7 @@ export default (props) => {
                 <FlexMainUserStyle>
                     <div>
                         <CreateIconStyle />
-                        <DeleteOutlineIconStyle />
+                        <DeleteOutlineIconStyle onClick={() => deleteUser()} />
                     </div>
 
                     <div>
