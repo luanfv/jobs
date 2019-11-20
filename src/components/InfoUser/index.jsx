@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {PaperStyle, MainStyle, TitleStyle, ButtonStyle, SpaceStyle, FlexMainUserStyle, DeleteOutlineIconStyle, CreateIconStyle} from './../../themes/styled'
 import {Redirect, Link} from 'react-router-dom'
 import {localApi} from './../../services/api'
+import Sucess from './../SucessMsg'
 
 export default (props) => {
     const {infoUser} = props
@@ -26,7 +27,7 @@ export default (props) => {
     }
 
     if(isRedirection) {
-        return <Redirect to='/' />
+        return <Sucess />
     }  
 
     return (

@@ -21,7 +21,7 @@ export default () => {
     return (
         <MainLoaderStyle>
             <MessageStyle>
-                <h3>Cadastro realizado com</h3>
+                <h3>Ação realizada com</h3>
                 <h1>SUCESSO</h1>
             </MessageStyle>
         </MainLoaderStyle>
