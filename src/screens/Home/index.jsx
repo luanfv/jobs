@@ -25,12 +25,6 @@ export default () => {
         handleUsers()
         document.title = 'Nave.rs | Home'
     }, [])
-    
-    useEffect(() => {
-        setInterval(async () => {
-            await handleUsers()
-        }, 9000)
-    }, [])
 
     if(isError) {
         return <Redirect to='error' />
