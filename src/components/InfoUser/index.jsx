@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import {PaperStyle, MainStyle, TitleStyle, ButtonStyle, SpaceStyle, FlexMainUserStyle, DeleteOutlineIconStyle, CreateIconStyle} from './../../themes/styled'
-import {MainModalStyle} from './style'
+import {PaperStyle, MainStyle, TitleStyle, ButtonStyle, SpaceStyle, FlexMainUserStyle} from './../../themes/styled'
+import {MainModalStyle, DeleteOutlineIconStyle, CreateIconStyle} from './style'
 import {Redirect, Link} from 'react-router-dom'
 import {localApi} from './../../services/api'
 import Sucess from './../SucessMsg'
@@ -34,7 +34,7 @@ export default (props) => {
     }, [isRedirection, isError])
 
     if(isError) {
-        return <Redirect to='error' />
+        return <Redirect to='/error' />
     }
 
     if(isRedirection) {
@@ -44,6 +44,7 @@ export default (props) => {
     return (
         <MainStyle>
             <PaperStyle>
+            
                 <FlexMainUserStyle>
                     <div>
                         <CreateIconStyle />
@@ -64,27 +65,26 @@ export default (props) => {
                         
                     </div>
                 </FlexMainUserStyle> 
+
                 <Link to='/'>
                     <ButtonStyle variant="contained" color="primary">
                         Voltar
                     </ButtonStyle>
-                </Link>    
-
-                <Modal
-                    open={open}
-                >
-                    <MainModalStyle>
-                        <h2>Tem certeza que deseja excluir esse usuário ?</h2>
-                        <SpaceStyle padding='15' />
-
-                        <div>
-                            <ButtonStyle margin='5' variant="contained" color="secundary" onClick={() => deleteUser()}>Sim</ButtonStyle>
-                            <ButtonStyle margin='5' variant="contained" color="primary" onClick={() => handleClose()}>Não</ButtonStyle>
-                        </div>
-                    </MainModalStyle>
-                </Modal>  
+                </Link>
 
             </PaperStyle>
+
+            <Modal open={open}>
+                <MainModalStyle>
+                    <h2>Tem certeza que deseja excluir esse usuário ?</h2>
+                    <SpaceStyle padding='15' />
+
+                    <div>
+                        <ButtonStyle margin='5' variant="contained" color="secundary" onClick={() => deleteUser()}>Sim</ButtonStyle>
+                        <ButtonStyle margin='5' variant="contained" color="primary" onClick={() => handleClose()}>Não</ButtonStyle>
+                    </div>
+                </MainModalStyle>
+            </Modal> 
         </MainStyle>
     )
 }

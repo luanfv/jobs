@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Cleiton",
-      "stack": "Full-Stack",
-      "birthday": "22/08/1997",
-      "email": "cleitinho@gmail.com"
-    },
-    {
       "id": 2,
       "name": "Florisbela",
       "stack": "Front-end",
