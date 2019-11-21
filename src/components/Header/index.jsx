@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 export default () => (
     <HeaderStyle>
         <Link to='/'>
-            <img src={logo} />
+            <img src={logo} alt='img' />
         </Link>
     </HeaderStyle>
 )
