@@ -3,6 +3,7 @@ Front end of the project was performed with *ReactJS* in conjunction with other 
 
 - react-router-dom
 - material-ui
+- material-ui-icons
 - styled-components
 - axios
 - json-server
@@ -14,6 +15,9 @@ Control or rotate the page
 
 ### material-ui
 Stylized components
+
+### material-ui-icons
+Icons of application
 
 ### styled-components
 Organization to write css code, transforming it into components
@@ -31,6 +35,7 @@ Simulation of a server
 *or*
 
 ### `npm install -g create-react-app`
+### `npm install @material-ui/icons`
 ### `npm install react-router-dom`
 ### `npm install styled-components`
 ### `npm install @material-ui/core`
@@ -39,5 +44,14 @@ Simulation of a server
 
 # Starting
 
-To start, open the terminal and type `npm i`; then find the src folder, browse to the services folder and run `json-server --watch db.json` for server-json to start.
-After that, go back to the main folder (jobs) and run `npm start`
+To start, open the terminal and type 
+### `npm i`
+
+Then find the src folder, browse to the services folder and run 
+### linux: `json-server --watch db.json`
+### windows: `npx json-server --watch db.json`
+for server-json to start.
+
+
+After that, go back to the main folder (jobs) and run 
+### `npm start`
