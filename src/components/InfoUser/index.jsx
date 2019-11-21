@@ -47,7 +47,7 @@ export default (props) => {
             
                 <FlexMainUserStyle>
                     <div>
-                        <Link to='/edite'>
+                        <Link to={`/edite/${infoUser.id}`}>
                             <CreateIconStyle />
                         </Link>
 

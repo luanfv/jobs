@@ -12,7 +12,7 @@ export default () => (
             <Route exact path='/' component={Home} />
             <Route exact path='/user/:id' component={User} />
             <Route exact path='/register' component={Register} />
-            <Route exact path='/edite' component={Edite} />
+            <Route exact path='/edite/:id' component={Edite} />
             <Route path='*' component={Route404} />
         </Switch>
     </BrowserRouter>
