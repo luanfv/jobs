@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Header from './../../components/Header'
 import InfoUser from './../../components/InfoUser'
 import {localApi} from './../../services/api'
@@ -8,16 +8,19 @@ import {Redirect} from 'react-router-dom'
 
 export default (props) => {
     document.title = 'Nave.rs | Vaga'
-
     const [user, setUser] = useState('')
+    const [isError, setIsError] = useState(false)
     
     const handleUser = async () => {
         await localApi.get(`/users/${props.match.params.id}`)
         .then((response) => setUser(response.data))
-        .catch(() => setUser('error'))
+        .catch(() => setIsError(true))
     }
-        
-    handleUser()
+
+    useEffect(() => {
+        if(user === '')
+            handleUser()
+    })
 
     if(user === '') {
         return (
@@ -30,7 +33,7 @@ export default (props) => {
         )
     }
 
-    if(user === 'error') {
+    if(isError) {
         return <Redirect to='/error' />
     }
  

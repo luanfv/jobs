@@ -75,7 +75,7 @@ export default (props) => {
     }
 
     if(isError) {
-        return <Redirect to='error' />
+        return <Redirect to='/error' />
     }
 
     if(isRedirection) {

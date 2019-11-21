@@ -83,7 +83,7 @@ export default (props) => {
                     <SpaceStyle padding='15' />
 
                     <div>
-                        <ButtonStyle margin='5' variant="contained" color="secundary" onClick={() => deleteUser()}>Sim</ButtonStyle>
+                        <ButtonStyle margin='5' variant="contained" onClick={() => deleteUser()}>Sim</ButtonStyle>
                         <ButtonStyle margin='5' variant="contained" color="primary" onClick={() => handleClose()}>Não</ButtonStyle>
                     </div>
                 </MainModalStyle>

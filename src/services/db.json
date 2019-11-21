@@ -1,32 +1,18 @@
 {
   "users": [
     {
-      "name": "Florisbela",
-      "stack": "Front-end",
-      "birthday": "14/01/1998",
-      "email": "flores@gmail.com",
+      "name": "HAHAa",
+      "stack": "5615d6sa456fds",
+      "birthday": "04/12/1564",
+      "email": "@.com222",
+      "id": 1
+    },
+    {
+      "name": "EDITADO",
+      "stack": "ds1a65",
+      "birthday": "12/03/0468",
+      "email": "@.com",
       "id": 2
-    },
-    {
-      "name": "Josevaldo",
-      "stack": "Back-end",
-      "birthday": "06/06/1996",
-      "email": "jojo@gmail.com",
-      "id": 3
-    },
-    {
-      "id": 4,
-      "name": "Mario",
-      "stack": "Front-end",
-      "birthday": "19/11/2000",
-      "email": "bros@gmail.com"
-    },
-    {
-      "name": "Juli Anne",
-      "stack": "Designer",
-      "birthday": "20/04/2000",
-      "email": "julianne@gmail.com",
-      "id": 5
     }
   ]
 }

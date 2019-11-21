@@ -6,13 +6,11 @@ import {MainLoaderStyle} from './../../themes/styled'
 export default () => {
     const [redirection, setRedirection] = useState(false)
 
-    setInterval(() => {
-        setRedirection(true)
-    }, 3000)
-
     useEffect(() => {
-    
-    }, [])
+        setInterval(() => {
+            setRedirection(true)
+        }, 3000)
+    })
 
     if(redirection) {
         return <Redirect to='/' />
