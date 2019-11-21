@@ -22,34 +22,38 @@ export const MainModalStyle = styled.div`
 
 export const DeleteOutlineIconStyle = styled(DeleteOutlineIcon)`
     && {
-        border-radius: 50%;
+        color: black;
         padding: 5px;
         margin: 0px 2px;
         width: 30px;
         height: 30px;
 
         :hover {
-            margin: 0px 0px;
-            width: 35px;
-            height: 35px;
+            color: #e53935;
             cursor: pointer;
+        }
+
+        @media only screen and (max-width: 550px) {
+            margin: 0px 0px;
         }
     }
 `
 
 export const CreateIconStyle = styled(CreateIcon)`
     && {
-        border-radius: 50%;
+        color: black;
         padding: 5px;
         margin: 0px 2px;
         width: 30px;
         height: 30px;
 
-        :hover {
-            margin: 0px 0px;
-            width: 35px;
-            height: 35px;
+        :hover { 
+            color: #43a047;
             cursor: pointer;
+        }
+
+        @media only screen and (max-width: 550px) {
+            margin: 0px 0px;
         }
     }
 `
