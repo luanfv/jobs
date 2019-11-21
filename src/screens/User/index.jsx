@@ -10,13 +10,9 @@ export default (props) => {
     const [user, setUser] = useState('')
     
     const getUser = async () => {
-        try {
-            const response = await localApi.get(`/users/${props.match.params.id}`)
-            setUser(response.data)
-        }
-        catch(e) {
-            setUser('error')
-        }
+        await localApi.get(`/users/${props.match.params.id}`)
+        .then((response) => setUser(response.data))
+        .catch(() => setUser('error'))
     }
 
     useEffect(() => {

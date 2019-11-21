@@ -12,13 +12,9 @@ export default () => {
     const [isError, setIsError] = useState(false)
 
     const handleUsers = async () => {
-        try {
-            const response = await localApi.get('/users')
-            setUsers(response.data)
-        }
-        catch(e) {
-            setIsError(true)
-        }
+        await localApi.get('/users')
+        .then((response) => setUsers(response.data))
+        .catch(() => setIsError(true))
     }
 
     useEffect(() => {

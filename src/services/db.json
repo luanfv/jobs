@@ -8,11 +8,11 @@
       "id": 2
     },
     {
-      "id": 3,
       "name": "Josevaldo",
       "stack": "Back-end",
       "birthday": "06/06/1996",
-      "email": "jojo@gmail.com"
+      "email": "jojo@gmail.com",
+      "id": 3
     },
     {
       "id": 4,

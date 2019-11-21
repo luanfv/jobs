@@ -68,14 +68,9 @@ export default (props) => {
             
             const user = {name: name, stack: stack, birthday: birthdayFormat, email: email}
 
-            try {
-                await localApi.put(`/users/${infoUser.id}`, user)
-                setIsRedirection(true)
-            }
-            catch(e) {
-                console.log(e)
-                setIsError(true)
-            }
+            await localApi.put(`/users/${infoUser.id}`, user)
+            .then(() => setIsRedirection(true))
+            .catch(() => setIsError(true))
         }
     }
 

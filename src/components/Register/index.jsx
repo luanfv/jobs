@@ -63,13 +63,9 @@ export default () => {
             
             const user = {name: name, stack: stack, birthday: birthdayFormat, email: email}
 
-            try {
-                await localApi.post('/users', user)
-                setIsRedirection(true)
-            }
-            catch(e) {
-                setIsError(true)
-            }
+            await localApi.post('/users', user)
+            .then(() => setIsRedirection(true))
+            .catch(() => setIsError(true))
         }
     }
 
