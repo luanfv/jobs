@@ -24,19 +24,15 @@ export const DeleteOutlineIconStyle = styled(DeleteOutlineIcon)`
     && {
         border-radius: 50%;
         padding: 5px;
-        margin: 0px 1px;
-        width: 35px;
-        height: 35px;
+        margin: 0px 2px;
+        width: 30px;
+        height: 30px;
 
         :hover {
+            margin: 0px 0px;
+            width: 35px;
+            height: 35px;
             cursor: pointer;
-            background: #ef5350;
-        }
-
-        @media only screen and (max-width: 630px) {
-            margin: 0;
-            width: 30px;
-            height: 30px;
         }
     }
 `
@@ -45,19 +41,15 @@ export const CreateIconStyle = styled(CreateIcon)`
     && {
         border-radius: 50%;
         padding: 5px;
-        margin: 0px 1px;
-        width: 35px;
-        height: 35px;
+        margin: 0px 2px;
+        width: 30px;
+        height: 30px;
 
         :hover {
+            margin: 0px 0px;
+            width: 35px;
+            height: 35px;
             cursor: pointer;
-            background: #ffee58;
-        }
-
-        @media only screen and (max-width: 630px) {
-            margin: 0;
-            width: 30px;
-            height: 30px;
         }
     }
 `
