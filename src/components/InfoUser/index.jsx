@@ -47,7 +47,10 @@ export default (props) => {
             
                 <FlexMainUserStyle>
                     <div>
-                        <CreateIconStyle />
+                        <Link to='/edite'>
+                            <CreateIconStyle />
+                        </Link>
+
                         <DeleteOutlineIconStyle onClick={() => handleOpen()} />
                     </div>
 
