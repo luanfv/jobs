@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {MainLoaderStyle} from './../../themes/styled'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Header from './../../components/Header'
@@ -19,13 +19,12 @@ export default (props) => {
         .catch(() => setIsError(true))
     }
 
-    useEffect(() => {
-        if(infoUser === '')
-            handleUser()
-    })
-
     if(isError) {
         return <Redirect to='/error' />
+    }
+
+    if(infoUser === '') {
+        handleUser()
     }
 
     if(infoUser === '') {

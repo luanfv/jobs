@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {PaperStyle, MainStyle, TitleStyle, ButtonStyle, SpaceStyle, FlexMainUserStyle} from './../../themes/styled'
 import {MainModalStyle, DeleteOutlineIconStyle, CreateIconStyle} from './style'
 import {Redirect, Link} from 'react-router-dom'
@@ -21,17 +21,10 @@ export default (props) => {
     }
 
     const deleteUser = async () => {
-        try {
-            await localApi.delete(`/users/${infoUser.id}`)
-            setIsRedirection(true)
-        }
-        catch(e) {
-            setIsError(true)
-        }   
+        await localApi.delete(`/users/${infoUser.id}`)
+        .then(() => setIsRedirection(true))
+        .catch(() => setIsError(true))  
     }
-
-    useEffect(() => {
-    }, [isRedirection, isError])
 
     if(isError) {
         return <Redirect to='/error' />

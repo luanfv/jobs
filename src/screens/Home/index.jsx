@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {FlexBox, TitleListStyle, ButtonStyle} from './style'
 import {MainStyle, MainLoaderStyle} from '../../themes/styled'
 import Header from './../../components/Header'
@@ -8,6 +8,8 @@ import {localApi} from './../../services/api'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
 export default () => {
+    document.title = 'Nave.rs | Home'
+
     const [users, setUsers] = useState('')
     const [isError, setIsError] = useState(false)
 
@@ -17,13 +19,12 @@ export default () => {
         .catch(() => setIsError(true))
     }
 
-    useEffect(() => {
-        handleUsers()
-        document.title = 'Nave.rs | Home'
-    }, [])
-
     if(isError) {
-        return <Redirect to='error' />
+        return <Redirect to='/error' />
+    }
+
+    if(users === '') {
+        handleUsers()
     }
 
     if(users === '') {
