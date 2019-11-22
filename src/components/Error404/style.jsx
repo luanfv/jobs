@@ -5,9 +5,9 @@ export const MainImg = styled.div`
     align-items: center;
     justify-content: center;
     align-content: center;
-    height: 80vh;
     
     img {
+        height: 100%;
         width: 500px;
     }
 `
