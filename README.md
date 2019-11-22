@@ -46,6 +46,8 @@ Simulation of a server
 
 To start, open the terminal and type 
 ### `npm i`
+if you use linux run this code too 
+### `sudo npm install -g json-server`
 
 Then find the src folder, browse to the services folder and run 
 ### linux: `json-server --watch db.json`
