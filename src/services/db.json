@@ -1,18 +1,32 @@
 {
   "users": [
     {
-      "name": "HAHAa",
-      "stack": "5615d6sa456fds",
-      "birthday": "04/12/1564",
-      "email": "@.com222",
-      "id": 1
+      "name": "Josevaldo",
+      "stack": "Back-end",
+      "birthday": "27/06/1998",
+      "email": "josevaldo@gmail.com",
+      "id": 2
     },
     {
-      "name": "EDITADO",
-      "stack": "ds1a65",
-      "birthday": "12/03/0468",
-      "email": "@.com",
-      "id": 2
+      "name": "Floresbela",
+      "stack": "Front-end",
+      "birthday": "12/06/2000",
+      "email": "flores@gmail.com",
+      "id": 3
+    },
+    {
+      "name": "Josevaldo",
+      "stack": "Full-Stack",
+      "birthday": "03/11/1992",
+      "email": "josevaldo@yahoo.com",
+      "id": 4
+    },
+    {
+      "name": "Lindomar",
+      "stack": "Front-end",
+      "birthday": "22/12/1997",
+      "email": "lindodomar@hotma.com",
+      "id": 5
     }
   ]
 }

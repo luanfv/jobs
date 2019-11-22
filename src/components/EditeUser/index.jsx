@@ -86,7 +86,7 @@ export default (props) => {
         <MainStyle>
             <PaperStyle>
                 <FormStyle>
-                    <TitleStyle fontSize='24'>Criar usuário</TitleStyle>
+                    <TitleStyle fontSize='24'>Editar perfil do {name}</TitleStyle>
                     <SpaceStyle />
 
                     <TextFieldStyle error={isName} label='Nome' onChange={(e) => setName(e.target.value)} value={name} />
