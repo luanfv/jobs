@@ -3,7 +3,7 @@ import {MainStyle, PaperStyle, FormStyle,TitleStyle , TextFieldStyle, ButtonStyl
 import {localApi} from './../../services/api'
 import Sucess from './../../components/SucessMsg'
 import {Redirect} from 'react-router-dom'
-import {updateUser} from './../../helpers'
+import {handleForm} from './../../helpers'
 
 export default (props) => {
     const {infoUser} = props 
@@ -25,7 +25,7 @@ export default (props) => {
     const [isError, setIsError] = useState(false)
 
     const verificationInformation = async () => {
-        const response = await updateUser({name, stack, birthday, email})
+        const response = await handleForm({name, stack, birthday, email})
 
         if(response.length > 1) { 
             setIsName(response[0])

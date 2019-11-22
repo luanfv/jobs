@@ -1,4 +1,4 @@
-export const updateUser = async user => {
+export const handleForm = async user => {
     const handleError = checkForm(user)
 
     if(handleError.indexOf(true) === -1) {

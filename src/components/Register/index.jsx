@@ -3,6 +3,7 @@ import {MainStyle, PaperStyle, FormStyle,TitleStyle , TextFieldStyle, ButtonStyl
 import {localApi} from './../../services/api'
 import Sucess from './../../components/SucessMsg'
 import {Redirect} from 'react-router-dom'
+import {handleForm} from './../../helpers'
 
 export default () => {
     const [name, setName] = useState('')
@@ -18,52 +19,17 @@ export default () => {
     const [isRedirection, setIsRedirection] = useState(false)
     const [isError, setIsError] = useState(false)
 
-    const checkForm = () => {
-        let isOk = true
+    const verificationInformation = async () => {
+        const response = await handleForm({name, stack, birthday, email})
 
-        if(name.trim() === '') {
-            setIsName(true)
-            isOk = false
-        } 
-        else {
-            setIsName(false)
-        }
-
-        if(stack.trim() === '') {
-            setIsStack(true)
-            isOk = false
+        if(response.length > 1) { 
+            setIsName(response[0])
+            setIsStack(response[1])
+            setIsBirthday(response[2])
+            setIsEmail(response[3])
         }
         else {
-            setIsStack(false)
-        }
-
-        if(birthday.trim() === '') {
-            setIsBirthday(true)
-            isOk = false
-        }
-        else {
-            setIsBirthday(false)
-        }
-
-        if(email.trim() === '' || email.indexOf('@') === -1 || email.indexOf('.com') === -1) {
-            setIsEmail(true)
-            isOk = false
-        }
-        else {
-            setIsEmail(false)
-        }
-
-        return isOk
-    }
-
-    const handleUser = async () => {
-        if(checkForm()) {
-            const date  = birthday.split('-')
-            const birthdayFormat = ((`${date[2]}/${date[1]}/${date[0]}`))
-            
-            const user = {name: name, stack: stack, birthday: birthdayFormat, email: email}
-
-            await localApi.post('/users', user)
+            await localApi.post(`/users/`, response[0])
             .then(() => setIsRedirection(true))
             .catch(() => setIsError(true))
         }
@@ -97,7 +63,7 @@ export default () => {
                     <TextFieldStyle error={isEmail} type='email' label='Email' onChange={(e) => setEmail(e.target.value)} value={email} />
                     <SpaceStyle />
                     
-                    <ButtonStyle variant="contained" color="primary" width="280" onClick={handleUser}>Enviar</ButtonStyle>
+                    <ButtonStyle variant="contained" color="primary" width="280" onClick={() => verificationInformation()}>Enviar</ButtonStyle>
                 </FormStyle>
             </PaperStyle>
         </MainStyle>
