@@ -27,29 +27,17 @@ const checkForm = user => {
     if(user.name.trim() === '') {
         isErrorName = true
     } 
-    else {
-        isErrorName = false
-    }
 
     if(user.stack.trim() === '') {
         isErrorStack = true
-    }
-    else {
-        isErrorStack = false
     }
 
     if(user.birthday.trim() === '') {
         isErrorBirthday = true
     }
-    else {
-        isErrorBirthday = false
-    }
 
     if(user.email.trim() === '' || user.email.indexOf('@') === -1 || user.email.indexOf('.com') === -1) {
         isErrorEmail = true
-    }
-    else {
-        isErrorEmail = false
     }
 
     return [isErrorName, isErrorStack, isErrorBirthday, isErrorEmail]
