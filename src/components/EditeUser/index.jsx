@@ -3,6 +3,7 @@ import {MainStyle, PaperStyle, FormStyle,TitleStyle , TextFieldStyle, ButtonStyl
 import {localApi} from './../../services/api'
 import Sucess from './../../components/SucessMsg'
 import {Redirect} from 'react-router-dom'
+import {updateUser} from './../../helpers'
 
 export default (props) => {
     const {infoUser} = props 
@@ -23,52 +24,17 @@ export default (props) => {
     const [isRedirection, setIsRedirection] = useState(false)
     const [isError, setIsError] = useState(false)
 
-    const checkForm = () => {
-        let isOk = true
+    const verificationInformation = async () => {
+        const response = await updateUser({name, stack, birthday, email})
 
-        if(name.trim() === '') {
-            setIsName(true)
-            isOk = false
-        } 
-        else {
-            setIsName(false)
-        }
-
-        if(stack.trim() === '') {
-            setIsStack(true)
-            isOk = false
+        if(response.length > 1) { 
+            setIsName(response[0])
+            setIsStack(response[1])
+            setIsBirthday(response[2])
+            setIsEmail(response[3])
         }
         else {
-            setIsStack(false)
-        }
-
-        if(birthday.trim() === '') {
-            setIsBirthday(true)
-            isOk = false
-        }
-        else {
-            setIsBirthday(false)
-        }
-
-        if(email.trim() === '' || email.indexOf('@') === -1 || email.indexOf('.com') === -1) {
-            setIsEmail(true)
-            isOk = false
-        }
-        else {
-            setIsEmail(false)
-        }
-
-        return isOk
-    }
-
-    const updateUser = async () => {
-        if(checkForm()) {
-            const date  = birthday.split('-')
-            const birthdayFormat = ((`${date[2]}/${date[1]}/${date[0]}`))
-            
-            const user = {name: name, stack: stack, birthday: birthdayFormat, email: email}
-
-            await localApi.put(`/users/${infoUser.id}`, user)
+            await localApi.put(`/users/${infoUser.id}`, response[0])
             .then(() => setIsRedirection(true))
             .catch(() => setIsError(true))
         }
@@ -102,7 +68,10 @@ export default (props) => {
                     <TextFieldStyle error={isEmail} type='email' label='Email' onChange={(e) => setEmail(e.target.value)} value={email} />
                     <SpaceStyle />
                     
-                    <ButtonStyle variant="contained" color="primary" width="280" onClick={updateUser}>Atualizar</ButtonStyle>
+                    <ButtonStyle variant="contained" color="primary" width="280" onClick={() => verificationInformation()}>
+                        Atualizar
+                    </ButtonStyle>
+
                 </FormStyle>
             </PaperStyle>
         </MainStyle>
