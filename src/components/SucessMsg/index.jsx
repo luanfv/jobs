@@ -7,15 +7,15 @@ export default () => {
     const [redirection, setRedirection] = useState(false)
 
     useEffect(() => {
-        setInterval(() => {
+        setTimeout(() => {
             setRedirection(true)
         }, 3000)
-    })
+    }, [])
 
     if(redirection) {
         return <Redirect to='/' />
     }
-
+    
     return (
         <MainLoaderStyle>
             <MessageStyle>
